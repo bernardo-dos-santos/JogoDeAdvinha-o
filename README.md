@@ -10,8 +10,8 @@ Um jogo simples mas muito desafiador e emocionante
 
 ## Como Utilizar 
 
-1. Clone o repositório ou baixe o código fonte da Calculadora.
-2. Abra ou terminal ou o prompt de comando e navegue até a pasta raiz da Calculadora.
+1. Clone o repositório ou baixe o código fonte do Jogo.
+2. Abra ou terminal ou o prompt de comando e navegue até a pasta raiz do Jogo.
 3. Utilize o comando abaixo para restaurar as dependências do projeto.
 ```
 dotnet restore
