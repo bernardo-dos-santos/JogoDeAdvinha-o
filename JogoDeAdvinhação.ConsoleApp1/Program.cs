@@ -9,10 +9,7 @@ namespace JogoDeAdvinhação.ConsoleApp1
             // loop principal 
             while (true)
             {
-
                 string opcaoDificuldade = ExibirMenu();
-
-
                 int totalTentativas = QualDificuldade(opcaoDificuldade);
                 if (totalTentativas == 0)
                     continue;
@@ -20,10 +17,9 @@ namespace JogoDeAdvinhação.ConsoleApp1
                 // gerar um número secreto aleatório
                 Random geradorDeNumeros = new Random();
                 int NumeroSecreto = geradorDeNumeros.Next(1, 21);
-
-                //logica do jogo 
+                
                 Console.WriteLine("---------------------------------");
-
+                //logica do jogo
                 for (int tentativas = 1; tentativas <= totalTentativas; tentativas++)
                 {
                     int NumeroDigitado = Tentativas(totalTentativas, tentativas);
@@ -31,14 +27,18 @@ namespace JogoDeAdvinhação.ConsoleApp1
                 }
                 string opcaoContinuar = DesejaContinuar();
 
-                if(opcaoContinuar != "S")
+                while (opcaoContinuar != "S" && opcaoContinuar != "N")
                 {
+                    Console.Clear();
+                    Console.WriteLine("Comando Inválido, Digite Novamente", "\n");
+                    opcaoContinuar = DesejaContinuar();
+                }
+                if (opcaoContinuar != "S")
+                {
+                    Console.WriteLine("Obrigado pela presença!!");
                     break;
                 }
             }
-
-
-
         }
 
 
@@ -122,14 +122,14 @@ namespace JogoDeAdvinhação.ConsoleApp1
             else if (NumeroDigitado < NumeroSecreto)
             {
                 Console.WriteLine("---------------------------------");
-                Console.WriteLine("O numero digitado é menor que o numero secreto ");
+                Console.WriteLine($"O numero secreto é maior que {NumeroDigitado} ");
                 Console.WriteLine("---------------------------------");
                 return tentativas;
             }
             else if (NumeroDigitado > NumeroSecreto)
             {
                 Console.WriteLine("---------------------------------");
-                Console.WriteLine("O numero digitado é maior que o numero secreto");
+                Console.WriteLine($"O numero secreto é menor que {NumeroDigitado} ");
                 Console.WriteLine("---------------------------------");
                 return tentativas;
             }
